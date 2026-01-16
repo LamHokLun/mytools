@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>myProgram</title>
+</head>
+<body style="background-color: rgba(94,178,255,1.00); color: RGBA(255,255,255,1);text-align: center; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; font-size: 2vw; line-height: 5vh;">
+<script>
+var mark6;
+var txt = "";
+var sortTxt;
+var _1Draw;
+var _2Draw;
+var _3Draw;
+var _4Draw;
+var _5Draw;
+var _6Draw;
+var greet = window.prompt("Which Programme Do You Want To Execute?");
+var site;
+var inpt;
+var ask;
+var body = document.getElementsByTagName("body");
+/*-----------------------------------------------------------------*/
+var expense = [1,3,5,6,8,9,8,
+2,7,9,3,7,8,8,
+25,75,88,423,24,57,96,
+34,74,99,65,338,895,344,
+398,22,4
+];
+var week1 = null;
+var week2 = null;
+var week3 = null;
+var week4 = null;
+var week5 = null;
+var schedule = new Array("210126", "130126", "190126", "020226", "110226", "140326");
+var _time = ["16:30-17:45", "14:15-15:00, 16:00-17:00", "12:30-17:45", "12:30-17:45", "12:30-17:45"];
+var _date;
+/*-----------------------------------------------------------------*/
+
+function myMark() {
+mark6 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49];
+_1Draw = Math.floor(Math.random()*49)+1;
+_2Draw = Math.floor(Math.random()*48)+1;
+_3Draw = Math.floor(Math.random()*47)+1;
+_4Draw = Math.floor(Math.random()*46)+1;
+_5Draw = Math.floor(Math.random()*45)+1;
+_6Draw = Math.floor(Math.random()*44)+1;
+	
+for (var i=0; i<1; i++){
+txt += mark6[_1Draw] + " ";
+mark6.splice(_1Draw, 1);
+	for (var i=0; i<1; i++){
+	txt += mark6[_2Draw] + " ";
+	mark6.splice(_2Draw, 1);
+	}
+		for (var i=0; i<1; i++){
+		txt += mark6[_3Draw] + " ";
+		mark6.splice(_3Draw, 1);
+		}
+			for (var i=0; i<1; i++){
+			txt += mark6[_4Draw] + " ";
+			mark6.splice(_4Draw, 1);
+			}
+				for (var i=0; i<1; i++){
+				txt += mark6[_5Draw] + " ";
+				mark6.splice(_5Draw, 1);
+				}
+					for (var i=0; i<1; i++){
+					txt += mark6[_6Draw];
+					mark6.splice(_6Draw, 1);
+					}
+var txtArr = txt.split(" ");
+var txtArrSort = txtArr.sort(function mySort(a,b){return a-b});
+document.write(txtArrSort);
+}
+}
+
+var txtArr = txt.split(" ");
+document.write(txtArr.sort(function(a, b){return a-b}));
+/*document.write(txt+"<br>"+mark6);*/
+
+function mySch (){
+	ask = window.prompt("Enter A Date to check Your Schedule: ");
+	_date = schedule.indexOf(ask);
+	if (schedule.includes(ask)){
+	document.write("<h2>The Meeting Has Been Scheduled on " + ask.slice(0,2) + "/" + ask.slice(2,4) + "/" + ask.slice(4,6) + " from " + _time[_date] + "</h2>");
+}
+else if (isNaN(ask)){
+	document.write("<h2>You Are Wrong, Enter A Date Please</h2>");
+	setTimeout (function reSet(){history.go();},4000);
+}
+
+else if (Boolean(ask) == false){
+	document.write("<h2>You Are Wrong, Enter A Date Please</h2>");
+	setTimeout (function reSet(){history.go();},4000);
+}
+
+else {
+	document.write("<h2>You Are Available on " + ask.slice(0,2) + "/" + ask.slice(2,4) + "/" + ask.slice(4,6) + "</h2>");
+}
+}
+
+function myCal() {
+	inpt = window.prompt("Calculation");
+	document.write("<h2> " + eval(inpt) + "</h2>");
+}
+
+function myExp(){
+for (var _1st=0;_1st<7;_1st++){
+	week1 += expense[_1st];
+}
+
+for (var _2nd=7;_2nd<14;_2nd++){
+	week2 += expense[_2nd];
+}
+
+for (var _3rd=14;_3rd<21;_3rd++){
+	week3 += expense[_3rd];
+}
+
+for (var _4th=21;_4th<28;_4th++){
+	week4 += expense[_4th];
+}
+for (var _5th=28;_5th<31;_5th++){
+	week5 += expense[_5th];
+}
+document.write("<h2>My Total Expenditure of The 1st Week: " + week1 + "</h2>");
+document.write("<h2My Total Expenditure of The 2nd Week: " + week2 + "</h2>");
+document.write("<h2>My Total Expenditure of The 3rd Week: " + week3 + "</h2>");
+document.write("<h2>My Total Expenditure of The 4th Week: " + week4 + "</h2>");
+document.write("<h2>My Total Expenditure of The 5th Week: " + week5 + "</h2>");
+document.write("<h2>My Total Expenditure of The Month: " + Number(week1+week2+week3+week4+week5) + "</h2>");
+}
+
+function mySite(){
+	site = window.prompt("Enter A Site");
+	window.open("https://" + site);
+}
+function myJob() {
+var vHeight = 7;
+var data = [29.748,30.788,29.288,28,24];
+var canvas = document.createElement("canvas");
+canvas.setAttribute("style","width:85%;height:85%;background-Color: rgba(140,40,255,1);margin: auto;");
+document.body.appendChild(canvas);
+var ctx = canvas.getContext("2d");
+	
+ctx.font = "15px arial";
+ctx.fillStyle = "white";
+ctx.fillText("The job vacancy from jobsDB in January", 5,15);
+
+	
+for (var i=0;i<data.length;i++){
+	ctx.fillStyle = "rgba(" + (255-i*50) + "," + (255-i*10) + "," + (0+i*20) + ",1)";
+	var bar = bar + ctx.fillRect(45,30+i*15,data[i]*3.7,vHeight);
+	ctx.font = "11px arial";
+	var txt = txt + ctx.fillText(i+1+" week",5,37+i*15);
+	}
+}
+	
+function myTrans() {
+	
+var eng = ["i", "you", "he", "she", "him", "her", "they", "we", "good", "nice","pleased", "kind", "eat", "intake", "happy", "delighted", "pleased", "heartened", "hope", "wish", "want", "desire", "buy", "bring", "choose", "bid", "purchase", "patronise", "sell", "vend", "auction", "trade", "sale", "help", "Be", "am","is", "are", "yes", "free", "support", "associate", "lift up", "see", "watch", "reach", "arrive", "go", "move", "transfer", "walk", "to", "dream", "take", "hold", "carry", "left", "right", "life", "impulsive","have", "has", "apple","inland", "understand" ,"comprehend"];
+var chi = ["我 竹手戈 わたし yo", "你　人弓火 あんなた tu", "他　人心尸 かれら a el", "她　女心木 かのじょ su", "他　人心木 かれ a el", "她　女心木 かのじょ su", "他們　人心木 人日弓 彼ら Ellos", "我們　竹手戈 人日弓 私たち Nosotros", "好　女弓木 良いよい bien ", "好　女弓木 良いよい bien ","好　女弓木 良いよい bien ","好　女弓木 良いよい bien ","吃　口人弓 食べ comer", "吃　口人弓 食べ comer", "快樂 心木大 女戈木 楽しい placer", "快樂 心木大 女戈木 楽しい placer", "快樂 心木大 女戈木 楽しい placer", "快樂 心木大 女戈木 楽しい placer", "希望 大大中月 卜月竹土 キボ esperenza", "希望 大大中月 卜月竹土 キボ esperenza", "想 木山心 たい quiero", "慾望 金人心 卜月竹土 欲しい hoshii quiero", "買 田中月山金 かう compra", "買 田中月山金 かう compra", "買 田中月山金 かう compra", "買 田中月山金 かう compra", "買 田中月山金 かう compra", "買 田中月山金 かう compra", "賣 土田中金 ニュウサツ　licitacion", "賣 土田中金 ニュウサツ　licitacion", "賣 土田中金 ニュウサツ　licitacion", "賣 土田中金 ニュウサツ licitacion", "賣 土田中金 ニュウサツ licitacion", "幫 土戈竹日月 助けて　ayuda", "是 日一卜人 です soy / son", "是 日一卜人 です soy / son", "是 日一卜人 です soy / son", "是 日一卜人 です soy / son", "是 日一卜人 です soy / son", "自由 竹月山 中田 jiyū gratis", "支援 十水 手月一水 支援するshien suru apoyo", "支援 十水 手月一水 支援するshien suru apoyo", "支援 十水 手月一水 支援するshien suru apoyo", "看 竹手月山 見るmiru ver", "看 竹手月山 見るmiru ver", "到達 一土中弓 卜土廿手 到着するtouchaku suru alcanzar", "到達 一土中弓 卜土廿手 到着するtouchaku suru alcanzar", "去 土戈 行くiku ir", "去 土戈 行くiku ir", "去 土戈 行くiku ir", "行 竹人一一弓 行くiku ir", "去 土戈 行くiku ir", "夢 廿田中弓 夢 yume sueño", "取 尸十水 取るtoru tomar", "取 尸十水 取るtoru tomar", "取 尸十水 取るtoru tomar", "左 大一 hidari izquierdo", "右 大口 migi derecho", "生命/活 竹手一 人一口中 水竹十口 人生 Jinsei 生命 seimei vida","衝動的 竹人竹土弓 竹土大尸 竹日心戈 衝動的 shōdōteki impulsivo","有 大月 ある tener", "有 大月 ある tener", "蘋果 廿卜竹金 田木 リンゴ manzana","內陸 人月 弓中土金土 内陸 nairiku interior","明白 日月竹日 分かりますwakarimasu entiendo", "明白 日月竹日 分かりますwakarimasu entiendo"];
+
+var ask = window.prompt("Please Enter A Sentence").toLowerCase();
+var askArr = ask.split(" ");
+
+for (var i=0; i<askArr.length;i++){
+	if (eng.includes(askArr[i])){
+	document.write(chi[eng.indexOf(askArr[i])] + "<br>");
+	}
+}
+//document.write(ask[0] + eng.indexOf(ask[0]) + eng.length);
+}
+
+function myTitle() {
+var txt = window.prompt("Convert Uppercase to Titlecase").toLowerCase();
+var txtArr = txt.split(" ");
+	
+for (var i=0; 0<txtArr.length;i++){
+	document.write(txtArr[i].slice(0,1).toUpperCase() + txtArr[i].slice(1,100)+" ");
+}
+//document.write("<br>" + typeof(txtArr));     //Proof it is right
+}
+	
+function myNumSe(){
+var ask = window.prompt("Enter Two Numbers to Form A Sequence");
+var askArr = ask.split(",");
+var txt = "";
+
+for(var i=Number(askArr[0]);i<Number(askArr[1])+1;i++){
+	txt += i + "<br>";}
+		if (txt==""){
+		document.write("Please Enter Two Numbers Again");
+		}
+	document.write(txt);
+//document.write(typeof(askArr)+"<br>"+typeof(ask)); //prove
+}
+	
+function myProp() {
+var property = ["cheung fat building", "hk university"];
+var locat = ["C1", "C2"];
+var ask = window.prompt("Enter A Property Name").toLowerCase();
+
+var askArr = ask.split(" ");
+var txt = "";
+
+for (var i=0;i<askArr.length;i++){
+	txt = txt + askArr[i].slice(0,1).toUpperCase() + askArr[i].slice(1,100) + " ";
+	}
+
+if (property.includes(ask)){
+	document.write(txt + ": " + locat[property.indexOf(ask)]);
+	}
+else {
+	document.write("Please Enter A Property Name Again");
+	setTimeout(function myreSet(){history.go(0)}, 4000);
+}
+
+//document.write("<br>" + txt);
+}
+/*-------------------------------------------------------------------*/
+	
+if (greet=="mySch"){
+	mySch();
+}
+else if (greet=="myCal"){
+	myCal();
+}
+else if (greet=="myExp"){
+	myExp();
+}
+else if (greet=="mySite"){
+	mySite();
+}
+else if (greet=="myMark"){
+	myMark();
+}
+else if (greet=="myJob"){
+	myJob();
+}
+else if (greet=="myTrans"){
+	myTrans();
+}
+else if (greet=="myTitle"){
+	myTitle();
+}
+else if (greet == "myNumSe"){
+	myNumSe();
+}
+else if (greet == "myProp"){
+	myProp();
+}
+else {
+	document.write("Enter Again")
+	setTimeout (function reSet(){history.go();},4000);
+}
+
+/*document.write(Boolean(ask));*/
+/*-------------------------------------------------------------------*/
+</script>
+</body>
+</html>

@@ -32,8 +32,8 @@ var week2 = null;
 var week3 = null;
 var week4 = null;
 var week5 = null;
-var schedule = new Array("210126", "130126", "190126", "020226", "110226", "140326");
-var _time = ["16:30-17:45", "14:15-15:00, 16:00-17:00", "12:30-17:45", "12:30-17:45", "12:30-17:45"];
+var schedule = new Array("130126", "190126", "210126", "220126", "020226", "110226", "140326");
+var _time = ["14:15-15:00", "16:00-17:00", "16:30-17:45", "14:15-17:45", "12:30-17:45", "12:30-17:45", "12:30-17:45"];
 var _date;
 /*-----------------------------------------------------------------*/
 
@@ -138,7 +138,7 @@ function mySite(){
 }
 function myJob() {
 var vHeight = 7;
-var data = [29.748,30.788,29.288,28,24];
+var data = [29.748,30.788,29.288,29.584,24];
 var canvas = document.createElement("canvas");
 canvas.setAttribute("style","width:85%;height:85%;background-Color: rgba(140,40,255,1);margin: auto;");
 document.body.appendChild(canvas);
@@ -197,7 +197,7 @@ for(var i=Number(askArr[0]);i<Number(askArr[1])+1;i++){
 //document.write(typeof(askArr)+"<br>"+typeof(ask)); //prove
 }
 	
-function myProp() {
+/*function myProp() {
 var property = ["cheung fat building", "hk university"];
 var locat = ["C1", "C2"];
 var ask = window.prompt("Enter A Property Name").toLowerCase();
@@ -218,6 +218,65 @@ else {
 }
 
 //document.write("<br>" + txt);
+}*/
+	
+function myProp(){
+var prop = [{
+Code: "CF001",
+Name: "Cheung Fat Building",
+Address: "Apartment Building Cheung Fat Industrial Building Hill Rd",
+Floor: "1/F",
+Room: "A",
+Size_sqft: 5180,
+Path: "I:\Z-Shared\0_Accommodation\Site_Visit\Cheung_Fat_Building\Room_A",
+Disabled_Lift: "Yes",
+Disabled_Toilet: "Yes",
+Air_Conditioner: "No",
+Fresh_Air_System: "No",
+Flat_Flooring: "Yes",
+Decoration: "No",
+Toilet: "Yes",
+Carpark: "Yes",
+Locker: "No",
+Passenger_Lift: "No",
+Goods_Lift: "No",
+Date: 130126
+},
+{Code: "CF002",
+Name: "Cheung Fat Building",
+Address: "Apartment Building Cheung Fat Industrial Building Hill Rd",
+Floor: "1/F",
+Room: "B",
+Size_sqft: 2818,
+Path: "I:\Z-Shared\0_Accommodation\Site_Visit\Cheung_Fat_Building\Room_B",
+Disabled_Lift: "Yes",
+Disabled_Toilet: "Yes",
+Air_Conditioner: "No",
+Fresh_Air_System: "No",
+Flat_Flooring: "Yes",
+Decoration: "No",
+Toilet: "Yes",
+Carpark: "Yes",
+Locker: "No",
+Passenger_Lift: "No",
+Goods_Lift: "No",
+Date: 130126
+}]
+
+var ask = window.prompt("Enter A Property Code");
+
+for (var i=0;i<prop.length;i++){
+var keys = Object.keys(prop[i]);
+var values = Object.values(prop[i]);
+var keysArr = String(keys).split(",");
+var valuesArr = String(values).split(",");
+//document.write(prop[i].Address+ "<br>");
+	if (prop[i].Code.includes(ask)){
+		for (var j=0; j<keysArr.length;j++){
+		document.write(keysArr[j] + ": " + valuesArr[j] + "<br>");
+		}
+	}
+}
 }
 /*-------------------------------------------------------------------*/
 	

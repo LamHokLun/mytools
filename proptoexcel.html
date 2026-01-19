@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JS Object to Excel</title>
+  <!-- Include SheetJS library -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <button id="downloadBtn">Download Excel</button>
+
+  <script>
+    // Sample JavaScript array of objects
+    const prop = [{
+Code: "CF001",
+Name: "Cheung Fat Building",
+Address: "Apartment Building Cheung Fat Industrial Building Hill Rd",
+Floor: "1/F",
+Room: "A",
+Size_sqft: 5180,
+Path: "I:\Z-Shared\0_Accommodation\Site_Visit\Cheung_Fat_Building\Room_A",
+Disabled_Lift: "Yes",
+Disabled_Toilet: "Yes",
+Air_Conditioner: "No",
+Fresh_Air_System: "No",
+Flat_Flooring: "Yes",
+Decoration: "No",
+Toilet: "Yes",
+Carpark: "Yes",
+Locker: "No",
+Passenger_Lift: "No",
+Goods_Lift: "No",
+Date: 130126
+},
+{Code: "CF002",
+Name: "Cheung Fat Building",
+Address: "Apartment Building Cheung Fat Industrial Building Hill Rd",
+Floor: "1/F",
+Room: "B",
+Size_sqft: 2818,
+Path: "I:\Z-Shared\0_Accommodation\Site_Visit\Cheung_Fat_Building\Room_B",
+Disabled_Lift: "Yes",
+Disabled_Toilet: "Yes",
+Air_Conditioner: "No",
+Fresh_Air_System: "No",
+Flat_Flooring: "Yes",
+Decoration: "No",
+Toilet: "Yes",
+Carpark: "Yes",
+Locker: "No",
+Passenger_Lift: "No",
+Goods_Lift: "No",
+Date: 130126
+}
+    ];
+
+    // Function to export JSON to Excel
+    function exportToExcel(data, fileName = "data.xlsx") {
+      try {
+        // Convert JSON to worksheet
+        const worksheet = XLSX.utils.json_to_sheet(prop);
+
+        // Create a new workbook and append the worksheet
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
+
+        // Export the workbook to Excel file
+        XLSX.writeFile(workbook, fileName);
+      } catch (error) {
+        console.error("Error exporting to Excel:", error);
+      }
+    }
+
+    // Button click event
+    document.getElementById("downloadBtn").addEventListener("click", () => {
+      exportToExcel(prop, "accommodation.xlsx");
+    });
+  </script>
+</body>
+</html>
+

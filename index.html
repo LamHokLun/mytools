@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>myProgram</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
 <body style="background-color: rgba(94,178,255,1.00); color: RGBA(255,255,255,1);text-align: center; font-family: Gotham, 'Helvetica Neue', Helvetica, Arial, 'sans-serif'; font-size: 2vw; line-height: 5vh;">
 <script>
 var mark6;
@@ -32,8 +33,9 @@ var week2 = null;
 var week3 = null;
 var week4 = null;
 var week5 = null;
-var schedule = new Array("130126", "190126", "210126", "220126", "020226", "110226", "140326");
-var _time = ["14:15-15:00", "16:00-17:00", "16:30-17:45", "14:15-17:45", "12:30-17:45", "12:30-17:45", "12:30-17:45"];
+var schedule = new Array("130126", "190126", "210126", "220126", "230126", "270126", "020226", 
+						 "110226", "140326");
+var _time = ["14:15-15:00", "16:00-17:00", "16:30-17:45", "14:15-17:45", "10:30-11:30", "10:30-11:30", "12:30-17:45", "12:30-17:45", "12:30-17:45"];
 var _date;
 /*-----------------------------------------------------------------*/
 
@@ -137,8 +139,8 @@ function mySite(){
 	window.open("https://" + site);
 }
 function myJob() {
-var vHeight = 7;
-var data = [29.748,30.788,29.288,29.584,24];
+/*var vHeight = 7;
+var data = [29.748,30.788,29.288,29.584,32.727,33.153,32.426];
 var canvas = document.createElement("canvas");
 canvas.setAttribute("style","width:85%;height:85%;background-Color: rgba(140,40,255,1);margin: auto;");
 document.body.appendChild(canvas);
@@ -154,7 +156,39 @@ for (var i=0;i<data.length;i++){
 	var bar = bar + ctx.fillRect(45,30+i*15,data[i]*3.7,vHeight);
 	ctx.font = "11px arial";
 	var txt = txt + ctx.fillText(i+1+" week",5,37+i*15);
-	}
+	}*/
+	
+document.write("<canvas id='myChart' style='margin: auto; background-Color: white;width:100%;'></canvas>");
+const xValues = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52];
+const yValues = [29.748,30.788,29.288,29.584,32.727,33.153,32.426,26.765,28.013,29.341,30.512,35.270,33.781,32.295,30.277,31.285,32.150,31.686];
+const barColors = ["red", "red", "red", "red", "blue", "blue", "blue","blue","green","green","green","green","orange","orange","orange","orange","purple","purple"];
+
+const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: "line",
+  data: {
+    labels: xValues,
+    datasets: [{
+      fill: false,
+      lineTension: 0,
+      backgroundColor: barColors,
+      borderColor: "rgba(0,0,255,0.2)",
+      data: yValues
+    }]
+  },
+  options: {
+    plugins: {
+      legend: {display:false},
+      title: {
+        display: true,
+        text: "The job vacancy from jobsDB in January",
+		color: "black",
+        font: {size:16}
+      }
+    }
+  }
+});
 }
 	
 function myTrans() {

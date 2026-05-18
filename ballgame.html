@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+#ball{
+width:20px;
+height:20px;
+border-radius:10px;
+background-color:rgba(255,0,0,1);
+position:relative;
+transition: all 0.5s ease-in-out;
+}
+</style>
+<body style="width:382px;height:273px;">
+<div id="ball"></div>
+<div></div>
+<br>
+<input id="btn" value="Click me" type="button">
+<p></p>
+<p></p>
+<p></p>
+
+<script>
+var ball = document.getElementById("ball");
+var div = document.getElementsByTagName("div");
+var p = document.getElementsByTagName("p");
+var btn = document.getElementById("btn");
+var divStyle = ["1px black solid","rgba(120,240,170,1)","40px","auto","relative","-3"];
+var r = Math.floor(Math.random()*255)+1;
+var g = Math.floor(Math.random()*255)+1;
+var b = Math.floor(Math.random()*255)+1;
+var r1 = Math.floor(Math.random()*255)+1;
+var g1 = Math.floor(Math.random()*255)+1;
+var b1 = Math.floor(Math.random()*255)+1;
+var x = Math.floor(Math.random()*400)+1;
+var y = Math.floor(Math.random()*273)+1;
+var isClick = 0;
+
+btn.style.display = "none";
+
+function myDivSty(){
+div[1].style.border = divStyle[0];
+div[1].style.backgroundColor = divStyle[1];
+div[1].style.width = divStyle[2];
+div[1].style.height = divStyle[2];
+div[1].style.margin = divStyle[3];
+div[1].style.position = divStyle[4];
+div[1].style.zIndex = divStyle[5];
+div[1].style.top = 273/2-40+"px";
+}
+myDivSty();
+
+document.body.onclick = function myClick(){ 
+switch (isClick){
+case 0:
+ball.style.backgroundColor = `rgba(${r},${g},${b},1)`;
+div[1].style.backgroundColor = `rgba(${r1},${g1},${b1},1)`;
+ball.style.transform = `translate(${x}px,${y}px)`;
+p[0].innerText = x+" "+y;
+if(x>=382||y>=273){
+ball.style.transform = "translate(382px,273px)";
+}
+else if (x>171 && x<191 && y>116.5 && y<136.5){
+p[0].innerText = "You win!";
+}
+
+isClick = 1;
+r = Math.floor(Math.random()*255)+1;
+g = Math.floor(Math.random()*255)+1;
+b = Math.floor(Math.random()*255)+1;
+r1 = Math.floor(Math.random()*255)+1;
+g1 = Math.floor(Math.random()*255)+1;
+b1 = Math.floor(Math.random()*255)+1;
+x = Math.floor(Math.random()*382)+1;
+y = Math.floor(Math.random()*273)+1;
+break;
+
+case 1: 
+ball.style.backgroundColor = `rgba(0,0,0,1)`;
+ball.style.transform = `translate(${x}px,${y}px)`;
+div[1].style.backgroundColor = `rgba(${r1},${g1},${b1},1)`;
+p[0].innerText = x+" " +y;
+if(x>=382||y>=273){
+ball.style.transform = "translate(382px,273px)";
+}
+else if (x>171 && x<191 && y>116.5 && y<136.5){
+p[0].innerText = "You win!";
+}
+r = Math.floor(Math.random()*255)+1;
+g = Math.floor(Math.random()*255)+1;
+b = Math.floor(Math.random()*255)+1;
+r1 = Math.floor(Math.random()*255)+1;
+g1 = Math.floor(Math.random()*255)+1;
+b1 = Math.floor(Math.random()*255)+1;
+x = Math.floor(Math.random()*382)+1;
+y = Math.floor(Math.random()*273)+1;
+isClick = 0;
+break;
+}
+}
+</script>
+
+</body>
+</html> 

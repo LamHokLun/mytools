@@ -298,7 +298,6 @@ document.write(`The yearly tax for ${person} person is <b>${txt}</b>`);
 /*-------------------------------------------------------------*/
 
 function myExchange(){
-document.write("<p></p>");
 var vHand = 0.0195;
 var mHand = 0.0195;
 var jHand = 0.0195;
@@ -316,13 +315,11 @@ var mTotal = amount*master*(1+mHand);
 var jTotal = amount*jcb*(1+jHand);
 var upTotal = amount*up*(1+upHand);
 
-
-var p = document.getElementsByTagName("p");
-p[0].innerHTML = `The exchange amount in cash for HK dollar is <b> ${cTotal.toFixed(2)} </b><br>
+document.write(`The exchange amount in cash for HK dollar is <b> ${cTotal.toFixed(2)} </b><br>
 The Union Pay exchange amount in HK dollar is <b> ${upTotal.toFixed(2)}</b> <br>
 The Visa exchange amount in HK dollar is <b> ${vTotal.toFixed(2)} </b><br>
 The JCB exchange amount in HK dollar is <b> ${jTotal.toFixed(2)} </b><br>
-The Master exchange amount in HK dollar is <b> ${mTotal.toFixed(2)} </b>`;
+The Master exchange amount in HK dollar is <b> ${mTotal.toFixed(2)} </b>`);
 }
 
 /*-----------------------------*/

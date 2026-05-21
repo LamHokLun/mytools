@@ -296,7 +296,37 @@ document.write(`The yearly tax for ${person} person is <b>${txt}</b>`);
 }	
 	
 /*-------------------------------------------------------------*/
-	
+
+function myExchange{
+document.write("<p></p>");
+var vHand = 0.0195;
+var mHand = 0.0195;
+var jHand = 0.0195;
+var upHand = 0.01;
+var amount = Number(window.prompt("Enter the amount"));
+var fxHk = Number(window.prompt("Enter the exchange rate today"));
+var up = Number(window.prompt("Enter the Union Pay exchange rate today"));
+var visa = Number(window.prompt("Enter the Visa exchange rate today"));
+var jcb = Number(window.prompt("Enter the JCB exchange rate today"));
+var master = Number(window.prompt("Enter the Master exchange rate today"));
+/*var handFee = Number(window.prompt("Enter the handling fee in percentage"));*/
+var cTotal = amount*fxHk;
+var vTotal = amount*visa*(1+vHand);
+var mTotal = amount*master*(1+mHand);
+var jTotal = amount*jcb*(1+jHand);
+var upTotal = amount*up*(1+upHand);
+
+
+var p = document.getElementsByTagName("p");
+p[0].innerHTML = `The exchange amount in cash for HK dollar is <b> ${cTotal.toFixed(2)} </b><br>
+The Union Pay exchange amount in HK dollar is <b> ${upTotal.toFixed(2)}</b> <br>
+The Visa exchange amount in HK dollar is <b> ${vTotal.toFixed(2)} </b><br>
+The JCB exchange amount in HK dollar is <b> ${jTotal.toFixed(2)} </b><br>
+The Master exchange amount in HK dollar is <b> ${mTotal.toFixed(2)} </b>`;
+}
+
+/*-----------------------------*/
+
 function myProp(){
 var prop = [{
 Code: "CF001",
@@ -386,6 +416,9 @@ else if (greet == "myNumSe"){
 }
 else if (greet == "myTax"){
 	myTax();
+}
+else if (greet == "myExchange"){
+	myExchange();
 }
 else if (greet == "myProp"){
 	myProp();

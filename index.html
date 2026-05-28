@@ -382,6 +382,30 @@ var valuesArr = String(values).split(",");
 	}
 }
 }
+
+/*-------------------------------------------------------------------*/
+function myGN(){
+var gn = window.prompt("Enter the GN number");
+var fstop = 1;
+
+document.write(`The <b>GN${gn}</b> flash light covers <b>${gn*fstop}</b> m in 100 iso and ${fstop} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/2}</b> m in 100 iso and ${fstop*2} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/4}</b> m in 100 iso and ${fstop*4} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/8}</b> m in 100 iso and ${fstop*8} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/16}</b> m in 100 iso and ${fstop*16} fstop <br><br>
+
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop*2}</b> m in 200 iso and ${fstop} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/1}</b> m in 200 iso and ${fstop*2} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/2}</b> m in 200 iso and ${fstop*4} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/4}</b> m in 200 iso and ${fstop*8} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/8}</b> m in 200 iso and ${fstop*16} fstop <br><br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop*4}</b> m in 400 iso and ${fstop} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop*2}</b> m in 400 iso and ${fstop*2} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop*1}</b> m in 400 iso and ${fstop*4} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/2}</b> m in 400 iso and ${fstop*8} fstop <br>
+The <b>GN${gn}</b> flash light covers <b>${gn*fstop/4}</b> m in 400 iso and ${fstop*16} fstop
+`);
+}
 /*-------------------------------------------------------------------*/
 	
 if (greet=="mySch"){
@@ -419,6 +443,9 @@ else if (greet == "myExchange"){
 }
 else if (greet == "myProp"){
 	myProp();
+}
+else if (greet == "myGN"){
+	myGN();
 }
 else {
 	document.write("Enter Again")
